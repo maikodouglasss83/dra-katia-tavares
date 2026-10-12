@@ -324,7 +324,30 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   </div>
 </footer>
 
+<style>
+.reveal-on .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal-on .rv.in{opacity:1;transform:none}
+</style>
 <script>
+/* Revela as seções conforme a página desce */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var groups=[['.sec-head',0],['.services .svc',90],['.steps li',110],['.about > *',140],['.faq details',70],['.contact .card',120]];
+  var els=[];
+  groups.forEach(function(g){
+    document.querySelectorAll(g[0]).forEach(function(el,i){
+      el.classList.add('rv'); el.style.setProperty('--d',(g[1]*(i%3))+'ms'); els.push(el);
+    });
+  });
+  var vh=window.innerHeight;
+  els.forEach(function(el){ if(el.getBoundingClientRect().top<vh*0.9) el.classList.add('in'); });
+  document.documentElement.classList.add('reveal-on');
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){ if(!el.classList.contains('in')) io.observe(el); });
+})();
 (function(){
   var svg=document.getElementById('implantSvg'), cap=document.getElementById('stepCap'), timers=[];
   var steps=[[0,'1. O implante de titânio é instalado no osso.'],[1900,'2. O osso se une ao implante (osseointegração).'],[3000,'3. O pilar conecta o implante à prótese.'],[3700,'4. A coroa devolve a forma e a função do dente.'],[5600,'O implante substitui a raiz do dente perdido.']];
