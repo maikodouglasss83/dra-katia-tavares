@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Dra. Katia Tavares, implantodontista em Guarulhos - SP. Implantes, próteses, ortodontia, lentes em resina, clareamento e limpeza.">
+<style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Dra. Katia Tavares Implantodontia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: consultório limpo — hero em duas colunas com diagrama do implante, etapas do tratamento em linha do tempo, contato no rodapé */
+:root{
+  /* paleta do consultório: mármore cinza-claro, logo em preto, letras prateadas, bancada de madeira e luz âmbar */
+  --bg:#efece8; --surface:#faf8f5; --ink:#1f1d1b; --muted:#68625c;
+  --accent:#2a2826; --warm:#8a5d38; --accent-soft:#e4ddd4; --titanium:#a8a6a3; --line:#dcd6ce;
+  --display:"Young Serif", Georgia, serif;
+  --body:"Figtree", system-ui, -apple-system, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+.eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{font-family:var(--display);font-size:20px;color:var(--ink);text-decoration:none}
+.brand small{display:block;font-family:var(--body);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+nav.links{display:flex;gap:22px;font-size:15px}
+nav.links a{color:var(--ink);text-decoration:none}
+nav.links a:hover{color:var(--accent)}
+@media (max-width:720px){nav.links{display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--accent);cursor:pointer;font-family:var(--body)}
+.btn.primary{background:var(--accent);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--accent)}
+
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;padding-block:72px 64px}
+.hero h1{font-size:clamp(38px,6vw,64px);margin-block:14px 20px}
+.hero h1 em{font-style:normal;color:var(--warm)}
+.eyebrow{color:var(--warm)}
+.steps li::before{color:var(--warm)!important}
+.steps .dur,.faq summary::after{color:var(--warm)!important}
+.hero p.lead{font-size:19px;color:var(--muted);max-width:52ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:28px;font-size:14px;color:var(--muted)}
+.hero > div{min-width:0}
+.figure{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px 24px}
+.figure svg{width:100%;height:auto;display:block}
+.figure .cap{font-size:13px;color:var(--muted);min-height:2.6em}
+.figfoot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}
+.figfoot .btn{flex-shrink:0}
+
+/* Animação: implante entra girando no osso → osseointegração → pilar → coroa → legendas */
+@media (prefers-reduced-motion:no-preference){
+  .play .a-screw{animation:screwIn 1.8s cubic-bezier(.3,.7,.3,1) both}
+  .play .a-threads{animation:spin .3s linear 6 both}
+  .play .a-glow{animation:glow 1.4s ease-out 1.7s both}
+  .play .a-pilar{animation:drop .7s cubic-bezier(.3,1.3,.5,1) 3s both}
+  .play .a-crown{animation:dropBig .9s cubic-bezier(.3,1.25,.5,1) 3.7s both}
+  .play .a-l1{animation:fade .5s ease 1.9s both}
+  .play .a-l2{animation:fade .5s ease 3.5s both}
+  .play .a-l3{animation:fade .5s ease 4.4s both}
+  .hero h1 em{background:linear-gradient(var(--warm),var(--warm)) left 94%/0% 3px no-repeat;animation:underline 1s ease .5s forwards}
+  .hero h1,.hero .lead,.hero .ctas{animation:rise .8s ease both}
+  .hero .lead{animation-delay:.12s}.hero .ctas{animation-delay:.24s}
+}
+@keyframes screwIn{from{transform:translateY(-70px);opacity:0}15%{opacity:1}to{transform:none;opacity:1}}
+@keyframes spin{from{transform:translateY(-18px)}to{transform:translateY(0)}}
+@keyframes glow{0%{opacity:0}50%{opacity:1}100%{opacity:.35}}
+@keyframes drop{from{transform:translateY(-36px);opacity:0}to{transform:none;opacity:1}}
+@keyframes dropBig{from{transform:translateY(-50px);opacity:0}to{transform:none;opacity:1}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes underline{to{background-size:100% 3px}}
+@keyframes rise{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
+@media (max-width:820px){.hero{grid-template-columns:1fr;gap:36px;padding-block:44px}.figure{max-width:340px}}
+
+section.block{padding-block:72px;border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;margin-bottom:44px;align-items:end}
+.sec-head h2{font-size:clamp(30px,4vw,42px);margin-top:10px}
+.sec-head p{color:var(--muted);max-width:58ch}
+@media (max-width:820px){.sec-head{grid-template-columns:1fr;gap:14px}}
+
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.svc{background:var(--surface);padding:28px 26px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.svc h3{font-size:22px}
+.svc p{color:var(--muted);font-size:15.5px}
+.cta-svc{background:var(--accent-soft)}
+@media (max-width:900px){.services{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.services{grid-template-columns:1fr}}
+
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding-top:52px;min-width:0}
+.steps li::before{content:counter(s);position:absolute;top:0;left:0;width:36px;height:36px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-family:var(--display);display:grid;place-items:center;font-size:17px}
+.steps li::after{content:"";position:absolute;top:18px;left:46px;right:-14px;height:1px;background:var(--line)}
+.steps li:last-child::after{display:none}
+.steps h3{font-size:19px;margin-bottom:6px}
+.steps p{font-size:15px;color:var(--muted)}
+.steps .dur{display:inline-block;margin-top:10px;font-size:12.5px;font-weight:600;color:var(--accent);letter-spacing:.04em}
+@media (max-width:900px){.steps{grid-template-columns:1fr;gap:28px}.steps li{padding:0 0 0 54px}.steps li::after{top:44px;left:18px;right:auto;bottom:-24px;width:1px;height:auto}}
+
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.portrait{display:block;width:100%;aspect-ratio:4/5;max-width:100%;height:auto;object-fit:cover;object-position:50% 20%;border-radius:18px;background:var(--accent-soft)}
+.about h2{font-size:clamp(30px,4vw,42px);margin-block:10px 18px}
+.about p{color:var(--muted);margin-bottom:14px;max-width:60ch}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+@media (max-width:820px){.about{grid-template-columns:1fr;gap:28px}.portrait{max-width:320px}}
+
+.faq details{border-bottom:1px solid var(--line);padding-block:18px}
+.faq summary{cursor:pointer;font-family:var(--display);font-size:20px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--accent);font-family:var(--body);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--muted);margin-top:10px;max-width:70ch}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.card h3{font-size:24px}
+.row{display:flex;justify-content:space-between;gap:12px;padding-block:8px;border-bottom:1px solid var(--line);font-size:15.5px}
+.row:last-child{border-bottom:none}
+.row span:last-child{color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
+.copyline{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.copyline code{font-family:var(--body);font-size:18px;font-weight:600;user-select:all}
+.mini{font-size:13px;padding:6px 12px}
+@media (max-width:720px){.contact{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:28px;font-size:13.5px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#inicio">Dra. Katia Tavares<small>Implantodontista</small></a>
+    <nav class="links" aria-label="Seções">
+      <a href="#tratamentos">Tratamentos</a>
+      <a href="#etapas">Como funciona</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn primary mini" href="#contato">Agendar</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Implantodontista · Guarulhos, SP</span>
+        <h1>Volte a sorrir e mastigar com <em>segurança</em>.</h1>
+        <p class="lead">A Dra. Katia Tavares é implantodontista e cuida do seu sorriso por completo: implantes, próteses, ortodontia, lentes em resina, clareamento e limpeza.</p>
+        <div class="ctas">
+          <a class="btn primary" href="#contato">Agendar avaliação</a>
+          <a class="btn ghost" href="https://maps.app.goo.gl/NfESdXyrQa3DDQYk6" target="_blank" rel="noopener">Ver no Google Maps</a>
+        </div>
+        <div class="meta"><span>Implantes</span><span>Próteses</span><span>Ortodontia</span><span>Lentes em resina</span><span>Clareamento</span></div>
+      </div>
+      <div class="figure" aria-hidden="false">
+        <svg id="implantSvg" class="play" viewBox="0 0 220 300" role="img" aria-label="Animação: o implante de titânio é instalado no osso, depois recebe o pilar e a coroa">
+          <defs>
+            <clipPath id="screwClip"><path d="M92 146 H128 L124 250 Q110 268 96 250 Z"/></clipPath>
+            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="var(--warm)" stop-opacity=".35"/>
+              <stop offset="100%" stop-color="var(--warm)" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect x="0" y="150" width="220" height="150" rx="10" fill="var(--accent-soft)"/>
+          <ellipse class="a-glow" cx="110" cy="205" rx="44" ry="70" fill="url(#glow)"/>
+          <path d="M0 150 Q55 138 110 146 T220 150" fill="none" stroke="var(--titanium)" stroke-width="1.2"/>
+          <g class="a-screw">
+            <path d="M92 146 H128 L124 250 Q110 268 96 250 Z" fill="var(--titanium)" opacity=".85"/>
+            <g clip-path="url(#screwClip)">
+              <g class="a-threads" stroke="var(--surface)" stroke-width="2.4" opacity=".9">
+                <line x1="90" y1="146" x2="130" y2="140"/><line x1="90" y1="164" x2="130" y2="158"/>
+                <line x1="90" y1="182" x2="130" y2="176"/><line x1="90" y1="200" x2="130" y2="194"/>
+                <line x1="90" y1="218" x2="130" y2="212"/><line x1="90" y1="236" x2="130" y2="230"/>
+                <line x1="90" y1="254" x2="130" y2="248"/><line x1="90" y1="272" x2="130" y2="266"/>
+              </g>
+            </g>
+          </g>
+          <rect class="a-pilar" x="96" y="120" width="28" height="24" rx="3" fill="var(--titanium)"/>
+          <path class="a-crown" d="M72 120 C66 70 76 32 110 30 C144 32 154 70 148 120 Z" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/>
+          <g font-family="Figtree, sans-serif" font-size="11" fill="var(--muted)">
+            <g class="a-l3"><line x1="152" y1="70" x2="178" y2="70" stroke="var(--muted)" stroke-width=".8"/><text x="182" y="74">Coroa</text></g>
+            <g class="a-l2"><line x1="126" y1="132" x2="178" y2="132" stroke="var(--muted)" stroke-width=".8"/><text x="182" y="136">Pilar</text></g>
+            <g class="a-l1"><line x1="128" y1="200" x2="170" y2="200" stroke="var(--muted)" stroke-width=".8"/><text x="174" y="198">Implante</text><text x="174" y="211">(titânio)</text></g>
+            <text x="12" y="290">Osso</text>
+          </g>
+        </svg>
+        <div class="figfoot">
+          <p class="cap" id="stepCap" aria-live="polite">O implante substitui a raiz do dente perdido.</p>
+          <button class="btn ghost mini" id="replay" type="button">Ver de novo</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="block" id="tratamentos">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Tratamentos</span><h2>O que fazemos</h2></div>
+        <p>Cada caso começa com uma avaliação completa. O tratamento indicado depende da quantidade de osso, da saúde da gengiva e do que você espera do resultado.</p>
+      </div>
+      <div class="services">
+        <div class="svc"><h3>Implantes</h3><p>A especialidade da Dra. Katia. Repõe dentes perdidos com implantes de titânio fixos no osso.</p></div>
+        <div class="svc"><h3>Coroa sobre implante</h3><p>Indicada para substituir um dente perdido: a coroa é fixada sobre o implante, com aparência natural.</p></div>
+        <div class="svc"><h3>Prótese protocolo</h3><p>Prótese fixa sobre implantes para quem deseja substituir todos os dentes de uma arcada.</p></div>
+        <div class="svc"><h3>Prótese total e móvel</h3><p>Próteses removíveis para substituir um, vários ou todos os dentes e recuperar a mastigação.</p></div>
+        <div class="svc"><h3>Ortodontia</h3><p>Aparelho ortodôntico para corrigir a posição dos dentes e a mordida.</p></div>
+        <div class="svc"><h3>Lentes em resina</h3><p>Para quem deseja fazer pequenas correções de cor, formato e tamanho dos dentes.</p></div>
+        <div class="svc"><h3>Clareamento</h3><p>Deixa os dentes mais brancos, com acompanhamento da dentista em todo o processo.</p></div>
+        <div class="svc"><h3>Limpeza e prevenção</h3><p>Limpeza indicada a cada 6 meses para manter a saúde dos dentes e da gengiva.</p></div>
+        <div class="svc cta-svc"><h3>Não sabe qual é o seu caso?</h3><p>Na avaliação, a Dra. Katia examina e indica o tratamento certo para você.</p><a class="btn primary mini" href="#contato" style="align-self:flex-start;margin-top:4px">Agendar avaliação</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="etapas">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Como funciona</span><h2>Etapas do tratamento</h2></div>
+        <p>Os prazos abaixo são uma referência geral. O seu cronograma é definido na avaliação.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Avaliação</h3><p>Consulta, exame clínico e conversa sobre o que você precisa.</p></li>
+        <li><h3>Planejamento</h3><p>Exames de imagem, como a tomografia, para posicionar o implante com precisão.</p></li>
+        <li><h3>Instalação</h3><p>Cirurgia com anestesia local para colocar o implante no osso.</p></li>
+        <li><h3>Osseointegração</h3><p>O osso se une ao titânio. Pode haver um dente provisório nesse período.</p><span class="dur">EM GERAL 3 A 6 MESES</span></li>
+        <li><h3>Prótese final</h3><p>Instalação da coroa ou prótese definitiva e revisões periódicas.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="sobre">
+    <div class="wrap about">
+      <img class="portrait" src="dra-katia.jpg" alt="Dra. Katia Tavares em seu consultório">
+
+      <div>
+        <span class="eyebrow">Sobre</span>
+        <h2>Dra. Katia Tavares</h2>
+        <p>Implantodontista, a Dra. Katia acompanha pessoalmente cada etapa do tratamento, da primeira consulta à entrega da prótese.</p>
+        <p>[Formação, especializações e anos de experiência da Dra. Katia.]</p>
+        <div class="creds">
+          <span class="chip">CRO-SP [número]</span>
+          <span class="chip">Implantodontista</span>
+          <span class="chip">[Especialização]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="duvidas">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Dúvidas frequentes</span><h2>Perguntas que recebemos</h2></div>
+        <p>Não encontrou a sua? Pergunte na consulta de avaliação.</p>
+      </div>
+      <div class="faq">
+        <details><summary>A colocação do implante dói?</summary><p>A cirurgia é feita com anestesia local. Depois, é comum sentir algum desconforto por poucos dias, controlado com a medicação indicada pela dentista.</p></details>
+        <details><summary>Quanto tempo dura um implante?</summary><p>Com boa higiene e revisões regulares, o implante pode durar muitos anos. Escovação, fio dental e consultas de manutenção fazem diferença.</p></details>
+        <details><summary>Qualquer pessoa pode colocar implante?</summary><p>A maioria dos adultos pode. A avaliação verifica a quantidade de osso, a saúde da gengiva e condições gerais de saúde antes de indicar o tratamento.</p></details>
+        <details><summary>Vou ficar sem dente durante o tratamento?</summary><p>Em muitos casos é possível usar um provisório enquanto o implante se integra ao osso. Isso é definido no planejamento.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contato">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Contato</span><h2>Agende sua avaliação</h2></div>
+        <p>Fale com o consultório pelo WhatsApp ou telefone e escolha o melhor horário.</p>
+      </div>
+      <div class="contact">
+        <div class="card">
+          <h3>Fale conosco</h3>
+          <div class="copyline"><code id="phone">(11) 94716-6630</code><button class="btn ghost mini" id="copyBtn" type="button">Copiar número</button></div>
+          <p style="color:var(--muted);font-size:15px">WhatsApp e telefone</p>
+          <a class="btn primary" href="https://wa.me/5511947166630?text=Ol%C3%A1%2C%20Dra.%20Katia!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" style="align-self:flex-start">Chamar no WhatsApp</a>
+        </div>
+        <div class="card">
+          <h3>Endereço e horários</h3>
+          <p>Edifício Guarulhos Office Tower<br>Av. Salgado Filho, 252 – 15º andar, sala 1510<br>Centro, Guarulhos – SP, 07115-000</p>
+          <div>
+            <div class="row"><span>Segunda a sexta</span><span>[09:00 – 18:00]</span></div>
+            <div class="row"><span>Sábado</span><span>[09:00 – 12:00]</span></div>
+            <div class="row"><span>Domingo</span><span>Fechado</span></div>
+          </div>
+          <a class="btn ghost" href="https://maps.app.goo.gl/NfESdXyrQa3DDQYk6" target="_blank" rel="noopener" style="align-self:flex-start">Como chegar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Dra. Katia Tavares · Implantodontista</span>
+    <span>Responsável técnica: Dra. Katia Tavares · CRO-SP [número]</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var svg=document.getElementById('implantSvg'), cap=document.getElementById('stepCap'), timers=[];
+  var steps=[[0,'1. O implante de titânio é instalado no osso.'],[1900,'2. O osso se une ao implante (osseointegração).'],[3000,'3. O pilar conecta o implante à prótese.'],[3700,'4. A coroa devolve a forma e a função do dente.'],[5600,'O implante substitui a raiz do dente perdido.']];
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function run(){
+    timers.forEach(clearTimeout); timers=[];
+    svg.classList.remove('play'); void svg.getBoundingClientRect(); svg.classList.add('play');
+    if(reduce) return;
+    steps.forEach(function(s){timers.push(setTimeout(function(){cap.textContent=s[1]},s[0]))});
+  }
+  document.getElementById('replay').addEventListener('click',run);
+  run();
+})();
+document.getElementById('copyBtn').addEventListener('click', function(){
+  var btn=this, t=document.getElementById('phone').textContent;
+  var done=function(){btn.textContent='Copiado';setTimeout(function(){btn.textContent='Copiar número'},1800)};
+  try{navigator.clipboard.writeText(t).then(done).catch(sel)}catch(e){sel()}
+  function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('phone'));var s=getSelection();s.removeAllRanges();s.addRange(r)}
+});
+</script>
+
+</body>
+</html>
